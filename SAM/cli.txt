@@ -1,0 +1,3 @@
+aws cloudformation package --template-file example.yaml --output-template-file serverless-output.yaml --s3-bucket chirillc-amazon-dtc
+
+aws cloudformation deploy --template-file /SAM/serverless-output.yaml --stack-name DTC-SAM-DEV --capabilities CAPABILITY_IAM

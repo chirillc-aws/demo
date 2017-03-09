@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  TestFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs4.3
+      Environment:
+        Variables:
+          S3_BUCKET: test-bucket-name
+      Events:
+        TestFunctionResource:
+          Type: Api
+          Properties:
+            Path: /resource/{resourceId}
+            Method: get
