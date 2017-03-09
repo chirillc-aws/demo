@@ -1,0 +1,7 @@
+version: 0.1
+
+phases:
+  build:
+    commands:
+      - aws cloudformation package --template-file ./SAM/example.yaml --output-template-file ./SAM/serverless-output.yaml --s3-bucket chirillc-amazon-dtc 
+      - aws cloudformation deploy --template-file ./SAM/serverless-output.yaml --stack-name DTC-SAM-DEV --capabilities CAPABILITY_IAM
